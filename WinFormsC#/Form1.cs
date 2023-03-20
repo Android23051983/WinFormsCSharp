@@ -23,7 +23,7 @@ namespace WinFormsC_ {
                     message = "Скоро я стану первоклассным программистом";
                     strlLength += message.Length;
                     int temp = strlLength / i;
-                    result = MessageBox.Show(message, "Кол-во MB: " + i + ", букв: " + strlLength + ", знаков на MB: " + temp, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    result = MessageBox.Show(message, "Кол-во MB: " + i + ", букв: " + strlLength + ", знаков на одно MB: " + temp, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (result == DialogResult.OK) {
                         Application.Exit();
                     }
