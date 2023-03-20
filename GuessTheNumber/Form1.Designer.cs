@@ -47,15 +47,16 @@
             button1.TabIndex = 1;
             button1.Text = "Угадай!!!";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Location = new Point(73, 9);
             label1.Name = "label1";
-            label1.Size = new Size(165, 15);
+            label1.Size = new Size(159, 15);
             label1.TabIndex = 2;
-            label1.Text = "Загадайте число от 0 до 2000";
+            label1.Text = "Загадайте число от 0 до 200";
             // 
             // Form1
             // 
