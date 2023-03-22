@@ -16,6 +16,7 @@ namespace Refill
         double shopMoney = 0;
         double totalDay = 0;
         double tempTotalDay = 0;
+        int cancel = 0;
         double total = 0.00;
         public Form1()
         {
@@ -92,6 +93,7 @@ namespace Refill
                     totalLabel.Text = "0,00";
                     break;
                 case DialogResult.Cancel:
+                    cancel++;
                     totalDay -= Convert.ToDouble(totalLabel.Text);
                     comboBox1.Text = "АИ 92 ЭКТО";
 
@@ -131,7 +133,7 @@ namespace Refill
 
         private void OnApplicationExit(object sender, EventArgs e)
         {
-            MessageBox.Show(tempTotalDay.ToString() + " руб.", "Заработок за текущий день");
+            MessageBox.Show(tempTotalDay.ToString() + " руб.\n отмен за смену " +cancel, "Заработок за текущий день");
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
