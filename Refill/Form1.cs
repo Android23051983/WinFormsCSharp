@@ -15,6 +15,7 @@ namespace Refill
         double totalMoney = 0;
         double shopMoney = 0;
         double totalDay = 0;
+        double tempTotalDay = 0;
         double total = 0.00;
         public Form1()
         {
@@ -29,6 +30,24 @@ namespace Refill
             this.comboBox1.Items.AddRange(new object[] { "АИ 92 ЭКТО", "АИ 95 ЭКТО", "Дизель ЭКТО", "АИ 100 ЭКТО", " " });
             this.litersTextBox.Visible = false;
             this.amountFuelTextBox.Visible = false;
+            switch (this.comboBox1.Text)
+            {
+                case "АИ 92 ЭКТО":
+                    this.textBox1.Text = "49,19";
+                    break;
+                case "АИ 95 ЭКТО":
+                    this.textBox1.Text = "54,60";
+                    break;
+                case "Дизель ЭКТО":
+                    this.textBox1.Text = "53,50";
+                    break;
+                case "АИ 100 ЭКТО":
+                    this.textBox1.Text = "66,41";
+                    break;
+                case " ":
+                    this.textBox1.Text = "0,00";
+                    break;
+            }
         }
         public void Total()
         {
@@ -42,16 +61,44 @@ namespace Refill
         public void ShowTimer(object xObject, EventArgs e)
         {
             vTimer.Stop();
-            DialogResult result = MessageBox.Show("Готовы работать с новым клиентом?", "Новый клиент", MessageBoxButtons.YesNo);
-            switch(result)
+            DialogResult result = MessageBox.Show("Готовы работать с новым клиентом?", "Новый клиент", MessageBoxButtons.YesNoCancel);
+            switch (result)
             {
                 case DialogResult.Yes:
                     comboBox1.Text = "АИ 92 ЭКТО";
 
-                    litersTextBox.Visible= false;
-                    litersTextBox.ReadOnly= false;
-                    amountFuelTextBox.Visible= false;
-                    amountFuelTextBox.ReadOnly= false;
+                    litersTextBox.Visible = false;
+                    litersTextBox.ReadOnly = false;
+                    amountFuelTextBox.Visible = false;
+                    amountFuelTextBox.ReadOnly = false;
+
+                    radioButton1.Checked = false;
+                    radioButton2.Checked = false;
+
+                    totaMoneylFuelLabel.Text = "0,00";
+
+                    sumTextBox1.Text = "1";
+                    sumTextBox2.Text = "1";
+                    sumTextBox3.Text = "1";
+                    sumTextBox4.Text = "1";
+
+                    checkBox1.Checked = false;
+                    checkBox2.Checked = false;
+                    checkBox3.Checked = false;
+                    checkBox4.Checked = false;
+
+                    shopLabel.Text = "0,00";
+
+                    totalLabel.Text = "0,00";
+                    break;
+                case DialogResult.Cancel:
+                    totalDay -= Convert.ToDouble(totalLabel.Text);
+                    comboBox1.Text = "АИ 92 ЭКТО";
+
+                    litersTextBox.Visible = false;
+                    litersTextBox.ReadOnly = false;
+                    amountFuelTextBox.Visible = false;
+                    amountFuelTextBox.ReadOnly = false;
 
                     radioButton1.Checked = false;
                     radioButton2.Checked = false;
@@ -84,7 +131,7 @@ namespace Refill
 
         private void OnApplicationExit(object sender, EventArgs e)
         {
-            MessageBox.Show(totalDay.ToString().ToUpper() + " руб.", "Заработок за текущий день");
+            MessageBox.Show(tempTotalDay.ToString() + " руб.", "Заработок за текущий день");
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -213,6 +260,7 @@ namespace Refill
             shopMoney = Convert.ToDouble(shopLabel.Text);
             totalLabel.Text = Convert.ToString(totalMoney + shopMoney);
             totalDay += Convert.ToDouble(totalLabel.Text);
+            tempTotalDay += Convert.ToDouble(totalLabel.Text);
             totalDayLabel.Text = "Сейчас в кассе " + totalDay + " руб.";
             if (Convert.ToDouble(totalLabel.Text) > 0)
             {

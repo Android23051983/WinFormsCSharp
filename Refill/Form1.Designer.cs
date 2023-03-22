@@ -87,6 +87,7 @@
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(244, 29);
             comboBox1.TabIndex = 0;
+            comboBox1.Text = "АИ 92 ЭКТО";
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // groupBox1
