@@ -1,3 +1,4 @@
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace Refill
@@ -12,7 +13,9 @@ namespace Refill
         private void Form1_Load(object sender, EventArgs e)
         {
             Location = new Point(0, 0);
-            this.comboBox1.Items.AddRange(new object[] { "¿» 92 › “Œ", "¿» 95 › “Œ", "ƒËÁÂÎ¸ › “Œ", "¿» 100 › “Œ" });
+            this.comboBox1.Items.AddRange(new object[] { "¿» 92 › “Œ", "¿» 95 › “Œ", "ƒËÁÂÎ¸ › “Œ", "¿» 100 › “Œ", " " });
+            this.litersTextBox.Visible = false;
+            this.amountFuelTextBox.Visible = false;
         }
         public void Total()
         {
@@ -27,7 +30,7 @@ namespace Refill
         {
             double price = Convert.ToDouble(priceTextBox.Text);
             double sum = Convert.ToDouble(sumTextBox.Text);
-            return price * sum; 
+            return price * sum;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -35,22 +38,25 @@ namespace Refill
             switch (this.comboBox1.Text)
             {
                 case "¿» 92 › “Œ":
-                    this.textBox1.Text = "1";
+                    this.textBox1.Text = "49,19";
                     break;
                 case "¿» 95 › “Œ":
-                    this.textBox1.Text = "2";
+                    this.textBox1.Text = "54,60";
                     break;
                 case "ƒËÁÂÎ¸ › “Œ":
-                    this.textBox1.Text = "3";
+                    this.textBox1.Text = "53,50";
                     break;
                 case "¿» 100 › “Œ":
-                    this.textBox1.Text = "4";
+                    this.textBox1.Text = "66,41";
+                    break;
+                case " ":
+                    this.textBox1.Text = "0,00";
                     break;
             }
         }
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            switch(checkBox1.Checked)
+            switch (checkBox1.Checked)
             {
                 case true:
                     total += Convert.ToDouble(priceTextBox1.Text) * Convert.ToDouble(sumTextBox1.Text);
@@ -146,10 +152,66 @@ namespace Refill
             shopLabel.Text = total.ToString();
             Total();
         }
-
+        double priceFuel = 0;
+        double litersFuel = 0;
+        double totalMoneyFuel = 0;
+        double amountFuel = 0;
+        double totalMoney = 0;
+        double shopMoney = 0;
         private void button1_Click(object sender, EventArgs e)
         {
-            totalLabel.Text = total.ToString();
+            totalMoney = Convert.ToDouble(totaMoneylFuelLabel.Text);
+            shopMoney = Convert.ToDouble(shopLabel.Text);
+            totalLabel.Text = Convert.ToString(totalMoney + shopMoney);
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            totaMoneylFuelLabel.Text = "0,00";
+            litersTextBox.Clear();
+            amountFuelTextBox.Clear();
+            litersTextBox.Visible = true;
+            litersTextBox.ReadOnly = false;
+            amountFuelTextBox.Visible = true;
+            amountFuelTextBox.ReadOnly = true;
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            totaMoneylFuelLabel.Text = "0,00";
+            litersTextBox.Clear();
+            amountFuelTextBox.Clear();
+            litersTextBox.Visible = true;
+            litersTextBox.ReadOnly = true;
+            amountFuelTextBox.Visible = true;
+            amountFuelTextBox.ReadOnly = false;
+        }
+        private void litersTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                priceFuel = Convert.ToDouble(textBox1.Text);
+                litersFuel = Convert.ToDouble(litersTextBox.Text);
+                totalMoneyFuel = priceFuel * litersFuel;
+                totalMoneyFuel = Math.Round(totalMoneyFuel, 2);
+                amountFuelTextBox.Text = totalMoneyFuel.ToString();
+                totaMoneylFuelLabel.Text = totalMoneyFuel.ToString();
+
+            }
+        }
+
+        private void amountFuelTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                priceFuel = Convert.ToDouble(textBox1.Text);
+                amountFuel = Convert.ToDouble(amountFuelTextBox.Text);
+                litersFuel = amountFuel / priceFuel;
+                litersFuel = Math.Round(litersFuel, 3);
+                litersTextBox.Text = litersFuel.ToString();
+
+
+            }
         }
     }
 }

@@ -35,10 +35,10 @@
             label4 = new Label();
             label3 = new Label();
             groupBox2 = new GroupBox();
-            label7 = new Label();
-            refillLabel = new Label();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
+            label6 = new Label();
+            totaMoneylFuelLabel = new Label();
+            amountFuelTextBox = new TextBox();
+            litersTextBox = new TextBox();
             textBox1 = new TextBox();
             label2 = new Label();
             label1 = new Label();
@@ -94,8 +94,8 @@
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(groupBox2);
-            groupBox1.Controls.Add(textBox3);
-            groupBox1.Controls.Add(textBox2);
+            groupBox1.Controls.Add(amountFuelTextBox);
+            groupBox1.Controls.Add(litersTextBox);
             groupBox1.Controls.Add(textBox1);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
@@ -144,8 +144,8 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(label7);
-            groupBox2.Controls.Add(refillLabel);
+            groupBox2.Controls.Add(label6);
+            groupBox2.Controls.Add(totaMoneylFuelLabel);
             groupBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox2.Location = new Point(8, 290);
             groupBox2.Margin = new Padding(4);
@@ -156,43 +156,45 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "К оплате:";
             // 
-            // label7
+            // label6
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(335, 98);
-            label7.Name = "label7";
-            label7.Size = new Size(39, 21);
-            label7.TabIndex = 1;
-            label7.Text = "руб.";
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Location = new Point(333, 99);
+            label6.Name = "label6";
+            label6.Size = new Size(39, 21);
+            label6.TabIndex = 3;
+            label6.Text = "руб.";
             // 
-            // refillLabel
+            // totaMoneylFuelLabel
             // 
-            refillLabel.AutoSize = true;
-            refillLabel.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
-            refillLabel.Location = new Point(235, 69);
-            refillLabel.Name = "refillLabel";
-            refillLabel.Size = new Size(95, 50);
-            refillLabel.TabIndex = 0;
-            refillLabel.Text = "0,00";
+            totaMoneylFuelLabel.AutoSize = true;
+            totaMoneylFuelLabel.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
+            totaMoneylFuelLabel.Location = new Point(190, 70);
+            totaMoneylFuelLabel.Name = "totaMoneylFuelLabel";
+            totaMoneylFuelLabel.Size = new Size(95, 50);
+            totaMoneylFuelLabel.TabIndex = 2;
+            totaMoneylFuelLabel.Text = "0,00";
             // 
-            // textBox3
+            // amountFuelTextBox
             // 
-            textBox3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox3.Location = new Point(184, 220);
-            textBox3.Margin = new Padding(4);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(154, 29);
-            textBox3.TabIndex = 6;
+            amountFuelTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            amountFuelTextBox.Location = new Point(184, 220);
+            amountFuelTextBox.Margin = new Padding(4);
+            amountFuelTextBox.Name = "amountFuelTextBox";
+            amountFuelTextBox.Size = new Size(154, 29);
+            amountFuelTextBox.TabIndex = 6;
+            amountFuelTextBox.KeyDown += amountFuelTextBox_KeyDown;
             // 
-            // textBox2
+            // litersTextBox
             // 
-            textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.Location = new Point(184, 171);
-            textBox2.Margin = new Padding(4);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(154, 29);
-            textBox2.TabIndex = 5;
+            litersTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            litersTextBox.Location = new Point(184, 171);
+            litersTextBox.Margin = new Padding(4);
+            litersTextBox.Name = "litersTextBox";
+            litersTextBox.Size = new Size(154, 29);
+            litersTextBox.TabIndex = 5;
+            litersTextBox.KeyDown += litersTextBox_KeyDown;
             // 
             // textBox1
             // 
@@ -237,6 +239,7 @@
             radioButton2.TabStop = true;
             radioButton2.Text = "Сумма";
             radioButton2.UseVisualStyleBackColor = true;
+            radioButton2.CheckedChanged += radioButton2_CheckedChanged;
             // 
             // radioButton1
             // 
@@ -251,6 +254,7 @@
             radioButton1.TabStop = true;
             radioButton1.Text = "Количество";
             radioButton1.UseVisualStyleBackColor = false;
+            radioButton1.CheckedChanged += radioButton1_CheckedChanged;
             // 
             // groupBox3
             // 
@@ -445,7 +449,7 @@
             // 
             shopLabel.AutoSize = true;
             shopLabel.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
-            shopLabel.Location = new Point(236, 70);
+            shopLabel.Location = new Point(193, 70);
             shopLabel.Name = "shopLabel";
             shopLabel.Size = new Size(95, 50);
             shopLabel.TabIndex = 0;
@@ -464,7 +468,7 @@
             groupBox6.Size = new Size(863, 142);
             groupBox6.TabIndex = 8;
             groupBox6.TabStop = false;
-            groupBox6.Text = "К оплате:";
+            groupBox6.Text = "ИТОГ К оплате:";
             // 
             // button1
             // 
@@ -481,7 +485,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(799, 95);
+            label8.Location = new Point(802, 95);
             label8.Name = "label8";
             label8.Size = new Size(39, 21);
             label8.TabIndex = 1;
@@ -491,7 +495,7 @@
             // 
             totalLabel.AutoSize = true;
             totalLabel.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
-            totalLabel.Location = new Point(699, 66);
+            totalLabel.Location = new Point(656, 66);
             totalLabel.Name = "totalLabel";
             totalLabel.Size = new Size(95, 50);
             totalLabel.TabIndex = 0;
@@ -507,6 +511,7 @@
             Controls.Add(groupBox3);
             Controls.Add(groupBox1);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4);
             Name = "Form1";
@@ -535,16 +540,14 @@
         private Label label2;
         private Label label1;
         private GroupBox groupBox2;
-        private TextBox textBox3;
-        private TextBox textBox2;
+        private TextBox amountFuelTextBox;
+        private TextBox litersTextBox;
         private Label label5;
         private Label label4;
         private Label label3;
         private RadioButton radioButton2;
         private RadioButton radioButton1;
         private GroupBox groupBox3;
-        private Label label7;
-        private Label refillLabel;
         private GroupBox groupBox4;
         private GroupBox groupBox5;
         private Label label11;
@@ -567,5 +570,7 @@
         private TextBox priceTextBox4;
         private TextBox priceTextBox3;
         private TextBox priceTextBox2;
+        private Label label6;
+        private Label totaMoneylFuelLabel;
     }
 }
