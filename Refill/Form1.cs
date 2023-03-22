@@ -1,15 +1,28 @@
 using System.Reflection;
 using System.Windows.Forms;
+using UITimer = System.Windows.Forms.Timer;
 
 namespace Refill
 {
     public partial class Form1 : Form
     {
+        UITimer vTimer = new System.Windows.Forms.Timer();
+
+        double priceFuel = 0;
+        double litersFuel = 0;
+        double totalMoneyFuel = 0;
+        double amountFuel = 0;
+        double totalMoney = 0;
+        double shopMoney = 0;
+        double totalDay = 0;
+        double total = 0.00;
         public Form1()
         {
             InitializeComponent();
+            vTimer.Tick += new EventHandler(ShowTimer);
+            Application.ApplicationExit += new EventHandler(OnApplicationExit);
         }
-        double total = 0.00;
+
         private void Form1_Load(object sender, EventArgs e)
         {
             Location = new Point(0, 0);
@@ -26,11 +39,52 @@ namespace Refill
             }
         }
 
-        public double Quantity(TextBox priceTextBox, TextBox sumTextBox)
+        public void ShowTimer(object xObject, EventArgs e)
         {
-            double price = Convert.ToDouble(priceTextBox.Text);
-            double sum = Convert.ToDouble(sumTextBox.Text);
-            return price * sum;
+            vTimer.Stop();
+            DialogResult result = MessageBox.Show("Готовы работать с новым клиентом?", "Новый клиент", MessageBoxButtons.YesNo);
+            switch(result)
+            {
+                case DialogResult.Yes:
+                    comboBox1.Text = "АИ 92 ЭКТО";
+
+                    litersTextBox.Visible= false;
+                    litersTextBox.ReadOnly= false;
+                    amountFuelTextBox.Visible= false;
+                    amountFuelTextBox.ReadOnly= false;
+
+                    radioButton1.Checked = false;
+                    radioButton2.Checked = false;
+
+                    totaMoneylFuelLabel.Text = "0,00";
+
+                    sumTextBox1.Text = "1";
+                    sumTextBox2.Text = "1";
+                    sumTextBox3.Text = "1";
+                    sumTextBox4.Text = "1";
+
+                    checkBox1.Checked = false;
+                    checkBox2.Checked = false;
+                    checkBox3.Checked = false;
+                    checkBox4.Checked = false;
+
+                    shopLabel.Text = "0,00";
+
+                    totalLabel.Text = "0,00";
+                    break;
+                case DialogResult.No:
+                    if (Convert.ToDouble(totalLabel.Text) > 0)
+                    {
+                        vTimer.Interval = Decimal.ToInt32(10) * 1000;
+                        vTimer.Start();
+                    }
+                    break;
+            }
+        }
+
+        private void OnApplicationExit(object sender, EventArgs e)
+        {
+            MessageBox.Show(totalDay.ToString().ToUpper() + " руб.", "Заработок за текущий день");
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -152,17 +206,19 @@ namespace Refill
             shopLabel.Text = total.ToString();
             Total();
         }
-        double priceFuel = 0;
-        double litersFuel = 0;
-        double totalMoneyFuel = 0;
-        double amountFuel = 0;
-        double totalMoney = 0;
-        double shopMoney = 0;
+
         private void button1_Click(object sender, EventArgs e)
         {
             totalMoney = Convert.ToDouble(totaMoneylFuelLabel.Text);
             shopMoney = Convert.ToDouble(shopLabel.Text);
             totalLabel.Text = Convert.ToString(totalMoney + shopMoney);
+            totalDay += Convert.ToDouble(totalLabel.Text);
+            totalDayLabel.Text = "Сейчас в кассе " + totalDay + " руб.";
+            if (Convert.ToDouble(totalLabel.Text) > 0)
+            {
+                vTimer.Interval = Decimal.ToInt32(10) * 1000;
+                vTimer.Start();
+            }
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -193,7 +249,7 @@ namespace Refill
                 priceFuel = Convert.ToDouble(textBox1.Text);
                 litersFuel = Convert.ToDouble(litersTextBox.Text);
                 totalMoneyFuel = priceFuel * litersFuel;
-                totalMoneyFuel = Math.Round(totalMoneyFuel, 2);
+                totalMoneyFuel = Convert.ToInt32(totalMoneyFuel);
                 amountFuelTextBox.Text = totalMoneyFuel.ToString();
                 totaMoneylFuelLabel.Text = totalMoneyFuel.ToString();
 
@@ -207,9 +263,9 @@ namespace Refill
                 priceFuel = Convert.ToDouble(textBox1.Text);
                 amountFuel = Convert.ToDouble(amountFuelTextBox.Text);
                 litersFuel = amountFuel / priceFuel;
-                litersFuel = Math.Round(litersFuel, 3);
+                litersFuel = Math.Round(litersFuel, 2, MidpointRounding.ToEven);
                 litersTextBox.Text = litersFuel.ToString();
-
+                totaMoneylFuelLabel.Text = amountFuel.ToString();
 
             }
         }

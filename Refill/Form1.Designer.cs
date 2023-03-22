@@ -64,6 +64,7 @@
             label11 = new Label();
             shopLabel = new Label();
             groupBox6 = new GroupBox();
+            totalDayLabel = new Label();
             button1 = new Button();
             label8 = new Label();
             totalLabel = new Label();
@@ -457,6 +458,7 @@
             // 
             // groupBox6
             // 
+            groupBox6.Controls.Add(totalDayLabel);
             groupBox6.Controls.Add(button1);
             groupBox6.Controls.Add(label8);
             groupBox6.Controls.Add(totalLabel);
@@ -469,6 +471,14 @@
             groupBox6.TabIndex = 8;
             groupBox6.TabStop = false;
             groupBox6.Text = "ИТОГ К оплате:";
+            // 
+            // totalDayLabel
+            // 
+            totalDayLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            totalDayLabel.Location = new Point(8, 45);
+            totalDayLabel.Name = "totalDayLabel";
+            totalDayLabel.Size = new Size(99, 45);
+            totalDayLabel.TabIndex = 3;
             // 
             // button1
             // 
@@ -572,5 +582,6 @@
         private TextBox priceTextBox2;
         private Label label6;
         private Label totaMoneylFuelLabel;
+        private Label totalDayLabel;
     }
 }
