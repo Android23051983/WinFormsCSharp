@@ -133,7 +133,7 @@ namespace Refill
 
         private void OnApplicationExit(object sender, EventArgs e)
         {
-            MessageBox.Show(tempTotalDay.ToString() + " руб.\n отмен за смену " +cancel, "Заработок за текущий день");
+            MessageBox.Show(tempTotalDay.ToString() + " руб.\nОтмен за смену " +cancel+"\nЗа вычетом отмен за смену заработано "+totalDay, "Заработок за текущий день");
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
