@@ -26,7 +26,6 @@ namespace Static
         MouseCoords lowerRightCorner = new MouseCoords();
         Stopwatch st = new Stopwatch();
         MouseButtons mb = MouseButtons.Left;
-        List<Control> controls = new List<Control>();
         int tabIndex = 0;
         private void DrawForm(int tabIndex, int x, int y, int x1, int y1)
         {
@@ -64,16 +63,20 @@ namespace Static
                     }
                 }
                 this.Controls.Add(button);
-                controls.Add(button);
+                //this.Text = "Статик " + count.ToString();
                 button.BringToFront();
                 button.Select();
                 button.Focus();
+                
             }
+
 
         }
     
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
+            int count = this.Controls.Count;
+            int[] nb = new int[10];
             if (!st.IsRunning)
             {
                 mb = e.Button;
@@ -81,10 +84,22 @@ namespace Static
                 mc1.X = e.X;
                 mc1.Y = e.Y;
             }
-            //if(e.Button == MouseButtons.Right)
-            //{
-                
-            //}
+            if (e.Button == MouseButtons.Right)
+            {
+
+                for (int i = 0; i < count; i++)
+                {
+                    if ((e.X >= this.Controls[i].Location.X || e.X <= this.Controls[i].Width) || (e.Y >= this.Controls[i].Location.Y || e.Y <= this.Controls[i].Height))
+                    {
+                        nb[i] = i; 
+                    }
+                }
+                for (int i = 0; i < nb.Length; i++)
+                {
+                    MessageBox.Show(Convert.ToString(nb[i]),"Номер кнопки", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+            }
         }
 
         private void Form1_MouseUp(object sender, MouseEventArgs e)
