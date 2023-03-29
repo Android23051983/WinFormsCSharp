@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GuessTheNumber", "GuessTheN
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoordinatesOfTtheForm", "CoordinatesOfTtheForm\CoordinatesOfTtheForm.csproj", "{4D0C0C8E-1CC3-41FB-B529-CBD896D89565}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refill", "Refill\Refill.csproj", "{45D7FD77-4CB2-4543-AF82-C973026F42FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Refill", "Refill\Refill.csproj", "{45D7FD77-4CB2-4543-AF82-C973026F42FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Static", "Static\Static.csproj", "{8D680F31-6DA3-4D51-A470-499804A084BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{45D7FD77-4CB2-4543-AF82-C973026F42FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45D7FD77-4CB2-4543-AF82-C973026F42FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45D7FD77-4CB2-4543-AF82-C973026F42FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D680F31-6DA3-4D51-A470-499804A084BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D680F31-6DA3-4D51-A470-499804A084BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D680F31-6DA3-4D51-A470-499804A084BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D680F31-6DA3-4D51-A470-499804A084BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

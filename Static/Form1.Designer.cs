@@ -1,4 +1,4 @@
-﻿namespace CoordinatesOfTtheForm
+﻿namespace Static
 {
     partial class Form1
     {
@@ -34,13 +34,14 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.AppWorkspace;
+            BackColor = SystemColors.ControlLight;
             ClientSize = new Size(800, 450);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Name = "Form1";
-            RightToLeftLayout = true;
-            Text = "Форма и координаты";
+            Text = "Статик";
+            WindowState = FormWindowState.Maximized;
             MouseDown += Form1_MouseDown;
-            MouseMove += Form1_MouseMove;
+            MouseUp += Form1_MouseUp;
             ResumeLayout(false);
         }
 

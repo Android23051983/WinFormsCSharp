@@ -34,16 +34,16 @@ namespace CoordinatesOfTtheForm
                 //this.Text = $"{this.Width-10}, {this.Height-10}";
                 //this.Text = "X: " + e.X.ToString() + "Y: " + e.Y.ToString();
             }
-            if(e.Button == MouseButtons.Right)
+            if (e.Button == MouseButtons.Right)
             {
                 this.Text = "Размеры рабочей обрасти X: " + this.ClientSize.Width + " Y: " + this.ClientSize.Height;
             }
-            
+
         }
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
-            this.Text = " Положение курсора X: " + e.X + " Y:" + e.Y ;
+            this.Text = " Положение курсора X: " + e.X + " Y:" + e.Y;
         }
     }
 }
