@@ -9,7 +9,15 @@ namespace DeyOfTheWeek
             InitializeComponent();
         }
         DateTime date = new DateTime();
+
+
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            date = dateTimePicker1.Value;
+            label1.Text = "День недели " + date.ToString("dddd", CultureInfo.GetCultureInfo("ru-ru"));
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
             date = dateTimePicker1.Value;
             label1.Text = "День недели " + date.ToString("dddd", CultureInfo.GetCultureInfo("ru-ru"));
