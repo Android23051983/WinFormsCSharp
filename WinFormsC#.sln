@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EscapingButton", "EscapingB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeyOfTheWeek", "DeyOfTheWeek\DeyOfTheWeek.csproj", "{DE949934-CAA5-420A-85A5-5D070ED47AD1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeforeTheSpecifiedDate", "BeforeTheSpecifiedDate\BeforeTheSpecifiedDate.csproj", "{1CFA2708-E784-48C0-97EE-B5B646008699}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{DE949934-CAA5-420A-85A5-5D070ED47AD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE949934-CAA5-420A-85A5-5D070ED47AD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE949934-CAA5-420A-85A5-5D070ED47AD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CFA2708-E784-48C0-97EE-B5B646008699}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CFA2708-E784-48C0-97EE-B5B646008699}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CFA2708-E784-48C0-97EE-B5B646008699}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CFA2708-E784-48C0-97EE-B5B646008699}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
