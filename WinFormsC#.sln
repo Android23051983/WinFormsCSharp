@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Static", "Static\Static.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EscapingButton", "EscapingButton\EscapingButton.csproj", "{9F94FD80-AA9E-4D8B-AAEC-F202E2BCE708}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeyOfTheWeek", "DeyOfTheWeek\DeyOfTheWeek.csproj", "{DE949934-CAA5-420A-85A5-5D070ED47AD1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{9F94FD80-AA9E-4D8B-AAEC-F202E2BCE708}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F94FD80-AA9E-4D8B-AAEC-F202E2BCE708}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F94FD80-AA9E-4D8B-AAEC-F202E2BCE708}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE949934-CAA5-420A-85A5-5D070ED47AD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE949934-CAA5-420A-85A5-5D070ED47AD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE949934-CAA5-420A-85A5-5D070ED47AD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE949934-CAA5-420A-85A5-5D070ED47AD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
