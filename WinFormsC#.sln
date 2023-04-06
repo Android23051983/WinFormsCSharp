@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoordinatesOfTtheForm", "Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Refill", "Refill\Refill.csproj", "{45D7FD77-4CB2-4543-AF82-C973026F42FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Static", "Static\Static.csproj", "{8D680F31-6DA3-4D51-A470-499804A084BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Static", "Static\Static.csproj", "{8D680F31-6DA3-4D51-A470-499804A084BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EscapingButton", "EscapingButton\EscapingButton.csproj", "{9F94FD80-AA9E-4D8B-AAEC-F202E2BCE708}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{8D680F31-6DA3-4D51-A470-499804A084BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D680F31-6DA3-4D51-A470-499804A084BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D680F31-6DA3-4D51-A470-499804A084BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F94FD80-AA9E-4D8B-AAEC-F202E2BCE708}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F94FD80-AA9E-4D8B-AAEC-F202E2BCE708}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F94FD80-AA9E-4D8B-AAEC-F202E2BCE708}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F94FD80-AA9E-4D8B-AAEC-F202E2BCE708}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
