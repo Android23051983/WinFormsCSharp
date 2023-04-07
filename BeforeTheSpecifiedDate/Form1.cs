@@ -8,7 +8,8 @@ namespace BeforeTheSpecifiedDate
     public partial class Form1 : Form
     {
         DateTime dt = new DateTime(2026, 11, 24, 6, 0, 0);
-        
+        Timer timer1 = new Timer();
+
         public Form1()
         {
             InitializeComponent();
@@ -17,7 +18,14 @@ namespace BeforeTheSpecifiedDate
             timer1.Enabled = true;
             timer1.Start();
         }
-        Timer timer1 = new Timer();
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                dt = Convert.ToDateTime(textBox1.Text);
+                label3.Text = $"До {textBox1.Text} осталось";
+            }
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -52,5 +60,6 @@ namespace BeforeTheSpecifiedDate
         {
 
         }
+
     }
 }
